@@ -15,13 +15,15 @@ export class Numbers {
       throw new Error("Invalid Roman number");
     }
 
-    let number = 0;
-    for (const element of roman) {
-      const numeral = this.numbers[element];
-      number += numeral;
-    }
+    return [...roman].reduce((acc, curr, index) => {
+      const next = this.numbers[roman[index + 1]];
+      if (next > this.numbers[curr]) {
+        return acc - this.numbers[curr];
+      }
 
-    return number;
+      const num = this.numbers[curr];
+      return acc + num;
+    }, 0);
   }
 
   static toRoman(number: number): string {

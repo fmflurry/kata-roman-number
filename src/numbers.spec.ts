@@ -22,9 +22,19 @@ describe("Numbers", () => {
     expect(number).toBe(5);
   });
 
+  it("should return 4 for IV", () => {
+    const number = Numbers.toNumber("IV");
+    expect(number).toBe(4);
+  });
+
   it("should return 10 for X", () => {
     const number = Numbers.toNumber("X");
     expect(number).toBe(10);
+  });
+
+  it("should return 484 for CDLXXXIV", () => {
+    const number = Numbers.toNumber("CDLXXXIV");
+    expect(number).toBe(484);
   });
 
   describe("toRoman", () => {
