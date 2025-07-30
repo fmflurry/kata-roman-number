@@ -27,6 +27,10 @@ describe("Numbers", () => {
     expect(number).toBe(4);
   });
 
+  it("should throw an error for IIII", () => {
+    expect(() => Numbers.toNumber("IIII")).toThrow("Invalid Roman number");
+  });
+
   it("should return 10 for X", () => {
     const number = Numbers.toNumber("X");
     expect(number).toBe(10);
@@ -35,6 +39,19 @@ describe("Numbers", () => {
   it("should return 484 for CDLXXXIV", () => {
     const number = Numbers.toNumber("CDLXXXIV");
     expect(number).toBe(484);
+  });
+
+  it("should return 99 for XCIX", () => {
+    const number = Numbers.toNumber("XCIX");
+    expect(number).toBe(99);
+  });
+
+  it("should throw an error for IC", () => {
+    expect(() => Numbers.toNumber("IC")).toThrow("Invalid Roman number");
+  });
+
+  it("should throw an error for IXC", () => {
+    expect(() => Numbers.toNumber("IXC")).toThrow("Invalid Roman number");
   });
 
   describe("toRoman", () => {
