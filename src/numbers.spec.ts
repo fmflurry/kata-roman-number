@@ -66,9 +66,15 @@ describe("Numbers", () => {
     });
 
     it("should throw an error for non-positive integers", () => {
-      expect(() => Numbers.toRoman(0)).toThrow("Roman numerals must be positive integers");
-      expect(() => Numbers.toRoman(-1)).toThrow("Roman numerals must be positive integers");
-      expect(() => Numbers.toRoman(-10)).toThrow("Roman numerals must be positive integers");
+      expect(() => Numbers.toRoman(0)).toThrow(
+        "Roman numerals must be positive integers"
+      );
+      expect(() => Numbers.toRoman(-1)).toThrow(
+        "Roman numerals must be positive integers"
+      );
+      expect(() => Numbers.toRoman(-10)).toThrow(
+        "Roman numerals must be positive integers"
+      );
     });
   });
 });
