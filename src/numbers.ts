@@ -3,21 +3,21 @@ export class Numbers {
         let totalValue = 0;
         const splittedRomanNumbers = romanNumbers.split('');
 
+        const romanToValueMap: { [key: string]: number } = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        };
+
         for (let index = 0; index < splittedRomanNumbers.length; index++) {
             const romanNumber = splittedRomanNumbers[index];
             const nextNumber = splittedRomanNumbers[index + 1];
 
-            let value;      
-            switch (romanNumber) {
-            case 'I': value = 1;
-            case 'V': value = 5;
-            case 'X': value = 10;
-            case 'L': value = 50;
-            case 'C': value = 100;
-            case 'D': value  = 500;
-            case 'M': value = 1000;
-            default: value = 0;
-            }
+            const value = romanToValueMap[romanNumber];
         
 
             if ((romanNumber === 'I' && (nextNumber === 'V' || nextNumber === 'X')) ||
