@@ -14,16 +14,15 @@ export function toRoman(num: number): string {
     { value: 4, symbol: "IV" },
     { value: 1, symbol: "I" },
   ];
-
-  let result = "";
-  let remaining = num;
-
-  for (const { value, symbol } of romanNumerals) {
-    while (remaining >= value) {
-      result += symbol;
-      remaining -= value;
+  const result = romanNumerals.reduce((acc, numeral) => {
+    while (num >= numeral.value) {
+      acc += numeral.symbol;
+      num -= numeral.value;
     }
-  }
+    return acc;
+  }, "");
+
+  console.log(result);
 
   return result;
 }
